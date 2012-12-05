@@ -7,8 +7,8 @@ fi
 
 set -o vi
 
-# workaround for gvim under Ubuntu/Unity (fixed in 12.10)
-#function vi() { /usr/bin/gvim -f $* & }
+# Start 'vi' as gvim
+function vi() { /usr/bin/gvim -f $* & }
 
 copy_to_whiting()
 {
