@@ -42,7 +42,9 @@ syntax on
 colors xoria256
 "colorscheme murphy
 
-filetype plugin on
+call pathogen#infect()
+
+"filetype plugin on
 filetype indent plugin on
 
 map S :%!./subit.pl
