@@ -3,3 +3,5 @@
 	name = Mark Krautheim
 [github]
 	user = subnivean
+[core]
+	autocrlf = input
