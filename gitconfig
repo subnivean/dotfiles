@@ -1,9 +1,9 @@
 [user]
-	email = mark.krautheim@clowderhill.com
+	email = mark.krautheim@clowderbay.com
 	name = Mark Krautheim
 [github]
 	user = subnivean
 [core]
 	autocrlf = input
 [credential]
-	helper = cache
+	helper = store
