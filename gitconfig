@@ -5,3 +5,5 @@
 	user = subnivean
 [core]
 	autocrlf = input
+[credential]
+	helper = cache
