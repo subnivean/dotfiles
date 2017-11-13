@@ -1,9 +1,9 @@
-# To the extent possible under law, the author(s) have dedicated all 
-# copyright and related and neighboring rights to this software to the 
-# public domain worldwide. This software is distributed without any warranty. 
-# You should have received a copy of the CC0 Public Domain Dedication along 
-# with this software. 
-# If not, see <http://creativecommons.org/publicdomain/zero/1.0/>. 
+# To the extent possible under law, the author(s) have dedicated all
+# copyright and related and neighboring rights to this software to the
+# public domain worldwide. This software is distributed without any warranty.
+# You should have received a copy of the CC0 Public Domain Dedication along
+# with this software.
+# If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
 
 # /etc/bash.bashrc: executed by bash(1) for interactive shells.
 
@@ -24,19 +24,7 @@
 # eval "$(dircolors -b /etc/DIR_COLORS)"
 
 # Fixup git-bash in non login env
-shopt -q login_shell || . /etc/profile.d/git-prompt.sh
-
-# Fixup git-bash in non login env
-shopt -q login_shell || . /etc/profile.d/git-prompt.sh
-
-# Fixup git-bash in non login env
-shopt -q login_shell || . /etc/profile.d/git-prompt.sh
-
-# Fixup git-bash in non login env
-shopt -q login_shell || . /etc/profile.d/git-prompt.sh
-
-# Fixup git-bash in non login env
-shopt -q login_shell || . /etc/profile.d/git-prompt.sh
+#shopt -q login_shell || . /etc/profile.d/git-prompt.sh
 
 ###########################
 # MSK additions 2016-11-16
@@ -49,7 +37,8 @@ set -o vi
 
 # Get cool directory-changing functions (type 'd') at prompt for list
 if [ ! -f ~/.dirstack ]; then touch ~/.dirstack; fi
-source /etc/profile.d/dirfuncs.sh  # My very own
+#source /etc/profile.d/dirfuncs.sh  # My very own
+source $HOME/dotfiles/dirfuncs.sh  # My very own
 
 PYTHON352T="/c/Leport-WinPython-64bit-3.5.2.3-testing/WinPython-64bit-3.5.2.3/python-3.5.2.amd64"
 PYTHON352="/c/Leport/WinPython-64bit-3.5.2.3/python-3.5.2.amd64"
@@ -72,46 +61,47 @@ fi
 
 PATH=/c/users/210008038/bin:$PATH
 
-function vi     
+function vi
 {
     $PORTABLE/gvimportable/gVimPortable.exe "$@" &
 }
 
-function wm    
+function wm
 {
     $PORTABLE/winmergeportable/winmergeportable.exe "$@" &
 }
 
-function pe  
+function pe
 {
     $PORTABLE/procexp.exe "$@" &
 }
 
-function ea 
+function ea
 {
    explorer $(eval cygpath -aw "\$D${1}") &
 }
 
-function jv  
+function jv
 {
     $PORTABLE/jpegviewportable/jpegviewportable.exe "$(cygpath -aw $@)" &
 }
 
-function jvr 
+function jvr
 # Open most recent file
 {
     f="$(find . -iname "*.png" -o -iname "*.gif" -o -iname "*.bmp" -o -iname "*.tif" -o -iname "*.jpg" |xargs ls -t |head -n1)"
     $PORTABLE/jpegviewportable/jpegviewportable.exe "$(cygpath -aw $f)" &
 }
 
-function gvimdiff   
+function gvimdiff
 {
     f1="$(cygpath -m $1)"
     f2="$(cygpath -m $2)"
-    
+
     PATH="$PORTABLE/gvimportable/App/vim/vim80/:$PATH" && $PORTABLE/gvimportable/gvimportable.exe -d "$f1" "$f2" &
 }
 
+alias ll='ls -l'
 alias lt='ls -lt'
 alias ltm="ls -lt --color=always |less --RAW-CONTROL-CHARS"
 alias ltr='ls -ltr --color=always|head -n24'
@@ -133,7 +123,7 @@ alias gci="git commit"
 alias ga="git add"
 alias gitcheck="$PYTHON352/python.exe $PYTHON352/Lib/site-packages/gitcheck/gitcheck.py"
 
-# Added 2013-03-31 to get the <TAB> key to cycle through 
+# Added 2013-03-31 to get the <TAB> key to cycle through
 # possibilities
 bind '"\t":menu-complete'
 
