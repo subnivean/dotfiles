@@ -24,7 +24,13 @@
 # eval "$(dircolors -b /etc/DIR_COLORS)"
 
 # Fixup git-bash in non login env
-#shopt -q login_shell || . /etc/profile.d/git-prompt.sh
+# shopt -q login_shell || . /etc/profile.d/git-prompt.sh
+source /etc/bash_completion.d/git-prompt
+PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h \w\[\033[0;32m\]$(__git_ps1)\n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\] ▶\[\033[0m\] '
+#export GIT_PS1_SHOWDIRTYSTATE=1
+#export GIT_PS1_SHOWCOLORHINTS=1
+#export GIT_PS1_SHOWUNTRACKEDFILES=1
+#export PROMPT_COMMAND=' __git_ps1 "\n[\e[33m][[\e[m]\A [\e[31m]\u[\e[m]@[\e[32m]\h [\e[34;01m]\l[\e[m] [\e[36m]\w[\e[m]" "[\e[33m]][\e[m]\n$ "'
 
 ###########################
 # MSK additions 2016-11-16
@@ -55,8 +61,8 @@ elif [ -d "$PORT2" ]; then
     export PORTABLE="$PORT2"
 elif [ -d "$PORT3" ]; then
     export PORTABLE="$PORT3"
-else
-    echo 'PORTABLE not set'
+# else
+#     echo 'PORTABLE not set'
 fi
 
 PATH=/c/users/210008038/bin:$PATH
@@ -101,10 +107,14 @@ function gvimdiff
     PATH="$PORTABLE/gvimportable/App/vim/vim80/:$PATH" && $PORTABLE/gvimportable/gvimportable.exe -d "$f1" "$f2" &
 }
 
-alias ll='ls -l'
-alias lt='ls -lt'
+alias ll='ls -l --color=always'
+alias lt='ls -lt --color=always'
 alias ltm="ls -lt --color=always |less --RAW-CONTROL-CHARS"
 alias ltr='ls -ltr --color=always|head -n24'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
 alias eh='explorer . &'
 alias wget="$PORTABLE/WinWGetPortable/app/winwget/wget/wget.exe"
 alias sqlite="/C/Users/210008038/bin/sqlite3.exe"
