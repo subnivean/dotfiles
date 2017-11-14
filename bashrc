@@ -69,7 +69,11 @@ PATH=/c/users/210008038/bin:$PATH
 
 function vi
 {
+  if [[ ! -z $USER ]] && USER='pi'; then
+    /usr/bin/vi "$@"
+  else
     $PORTABLE/gvimportable/gVimPortable.exe "$@" &
+  fi
 }
 
 function wm

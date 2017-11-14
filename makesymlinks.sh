@@ -7,7 +7,12 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="vimrc bashrc bash_aliases inputrc dirstack gitconfig"    # list of files/folders to symlink in homedir
+# Make list of files/folders to symlink in homedir
+if [[ ! -z $USER ]] && USER='pi'; then
+   files="bashrc bash_aliases inputrc dirstack gitconfig"
+else
+   files="vimrc bashrc bash_aliases inputrc dirstack gitconfig"
+fi
 
 ##########
 
