@@ -26,7 +26,7 @@
 # Fixup git-bash in non login env
 # shopt -q login_shell || . /etc/profile.d/git-prompt.sh
 source /etc/bash_completion.d/git-prompt
-PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h \w\[\033[0;32m\]$(__git_ps1)\n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\] ▶\[\033[0m\] '
+PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h \w\[\033[0;32m\]$(__git_ps1)\n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\]\[\033[0m\] '
 #export GIT_PS1_SHOWDIRTYSTATE=1
 #export GIT_PS1_SHOWCOLORHINTS=1
 #export GIT_PS1_SHOWUNTRACKEDFILES=1
