@@ -213,3 +213,6 @@ export C10='//3.51.199.166/C$/blade_inspection_data/'
 export C11='//3.51.198.157/C$/blade_inspection_data/'
 export C12='//3.51.224.148/C$/blade_inspection_data/'
 export C13='//3.51.224.190/C$/blade_inspection_data/'
+
+# Added per Enthought's EDM installer suggestion
+export PATH=/home/mark/edm/bin:$PATH
