@@ -19,8 +19,8 @@ set shiftwidth=2
 set incsearch
 set hlsearch
 set expandtab
-set lines=60
-set columns=80
+"set lines=60
+"set columns=80
 "set textwidth=75
 set textwidth=0
 set guifont=Monospace\ 8
@@ -39,10 +39,10 @@ set t_vb= " damn - still get visual bell, even after this
 "set guifont=LucidaTypewriter\ 9
 syntax on
 "colors koehler
-colors xoria256
+"colors xoria256
 "colorscheme murphy
 
-call pathogen#infect()
+"call pathogen#infect()
 
 "filetype plugin on
 filetype indent plugin on

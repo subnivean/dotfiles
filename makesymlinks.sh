@@ -9,9 +9,9 @@ dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 # Make list of files/folders to symlink in homedir
 if [[ ! -z $USER ]] && USER='pi'; then
-   files="bashrc bash_aliases inputrc dirstack gitconfig"
+   files="vimrc bashrc bash_aliases inputrc dirstack gitconfig tmux.conf"
 else
-   files="vimrc bashrc bash_aliases inputrc dirstack gitconfig"
+   files="vimrc bashrc bash_aliases inputrc dirstack gitconfig tmux.conf"
 fi
 
 ##########
