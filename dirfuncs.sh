@@ -8,31 +8,29 @@ save_dirstack()
     def_IFS="$IFS" 
     IFS=$'\n' 
 
-    n=0
+    # Get the length of the directory stack
+    n=${#DIRSTACK[*]}
+
     # Empty the file
     echo -n "" >|~/.dirstack 
-    for d in ${DIRSTACK[*]} 
+
+    # Loop through directories in the stack, in reverse order
+    for dir in $(dirs -l -p |tac) 
     do
-        export D$n="$d"
 
-            # Store the commands to recreate the stack in the reverse order 
-            # so they come out correctly later
-            #
-        dir_cnt=${#DIRSTACK[*]}
-        dir="${DIRSTACK[$(( $dir_cnt - $n - 1 ))]}"
+        # Write the `pushd` command to the file
+        echo "builtin pushd -n \"$dir\" >/dev/null" >> ~/.dirstack
 
-            # Check for whitespace in the filename and put quotes
-            # around it if present (quotes around *some* things without
-            # whitespace seem to mess things up a bit, e.g. '~/bin')
-            #
-        if [[ "$dir" == *\ * ]]; then dir="'$dir'"; fi
-        echo "builtin pushd -n $dir >/dev/null" >> ~/.dirstack
+        # Assign the directory to an environment variable
+        n=$(( $n - 1 ))
+        export D$n="$dir"
 
-        n=$(( $n + 1 ))
     done
 
-    # Force cd to home after pushd above
-    echo "cd ~" >> ~/.dirstack 
+    # Force cd to home after pushd above (start of session)
+    echo "cd \"$HOME\"" >> ~/.dirstack 
+
+    # Reset the IFS to standard behaviour
     IFS="$def_IFS"
 }
 
@@ -49,7 +47,7 @@ pushd()
         # how to do this purely in the shell; lack of hashes
         # to make a 'key counter' hurt)
         #
-    for n in $(dirs -p | perl -ne 'if($seen{$_}++){print "$cnt\n"} else {$cnt++}')
+    for n in $(dirs -l -p | perl -ne 'if($seen{$_}++){print "$cnt\n"} else {$cnt++}')
     do
         popd -n +$n >/dev/null
     done

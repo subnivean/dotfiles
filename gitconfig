@@ -1,18 +1,9 @@
-[user]
-	email = mark.krautheim@clowderbay.com
-	name = Mark Krautheim
-[github]
-	user = subnivean
 [core]
 	autocrlf = input
 [credential]
 	helper = store
-
-# Follow diff tool settings from:
-# http://stackoverflow.com/questions/34119866/setting-up-and-using-meld-as-your-git-difftool-and-mergetool
-[diff]
-    tool = meld
-[difftool]
-    prompt = false
-[difftool "meld"]
-    cmd = meld "$LOCAL" "$REMOTE"
+[http]
+	proxy = http://PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com:80
+[user]
+	email = you@example.com
+	name = Your Name
