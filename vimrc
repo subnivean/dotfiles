@@ -1,4 +1,4 @@
-source $VIMRUNTIME/vimrc_example.vim
+"source $VIMRUNTIME/vimrc_example.vim
 
 let g:explStartRight=0    " Put new explorer window to the left of the
                           " current window
