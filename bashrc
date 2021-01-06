@@ -44,6 +44,9 @@ alias gci="git commit"
 alias ga="git add"
 alias gl="git log"
 
+# tmux
+alias tma="tmux attach"
+
 # Added 2013-03-31 to get the <TAB> key to cycle through
 # possibilities
 bind '"\t":menu-complete'
