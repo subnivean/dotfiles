@@ -2,8 +2,9 @@
 	autocrlf = input
 [credential]
 	helper = store
-[http]
-	proxy = http://PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com:80
+#[http]
+#	proxy = http://PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com:80
+#	Better to do an `export https_proxy=...` and `unset...
 [user]
 	email = you@example.com
 	name = Your Name
