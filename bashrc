@@ -16,7 +16,6 @@ source /etc/bash_completion.d/git-prompt
 PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h \w\[\033[0;32m\]$(__git_ps1)\n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\]\[\033[0m\] '
 
 shopt -s histappend
-PROMPT_COMMAND='history -a'
 
 set -o noclobber
 set -o vi
@@ -50,3 +49,33 @@ alias tma="tmux attach"
 # Added 2013-03-31 to get the <TAB> key to cycle through
 # possibilities
 bind '"\t":menu-complete'
+
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+      eval `ssh-agent -s`
+          ssh-add
+fi
+
+main_proxy="http://PITC-ZScaler-Global-Zen.proxy.corporate.ge.com:80"
+export http_proxy="$main_proxy"
+export https_proxy="$main_proxy"
+export HTTP_PROXY="$main_proxy"
+export HTTPS_PROXY="$main_proxy"
+export NO_PROXY="github.build.ge.com"
+
+##### HISTORY SETTINGS #####
+##### The following from https://stackoverflow.com/questions/9457233/unlimited-bash-history
+##### Added 2021-02-01 MSK
+# Eternal bash history.
+# ---------------------
+# Undocumented feature which sets the size to "unlimited".
+# http://stackoverflow.com/questions/9457233/unlimited-bash-history
+export HISTFILESIZE=
+export HISTSIZE=
+export HISTTIMEFORMAT="[%F %T] "
+# Change the file location because certain bash sessions truncate .bash_history file upon close.
+# http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
+export HISTFILE=~/.bash_eternal_history
+# Force prompt to write history after every command.
+# http://superuser.com/questions/20900/bash-history-loss
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+##### END HISTORY SETTINGS ####
