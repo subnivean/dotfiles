@@ -1,3 +1,4 @@
 dirstack
 *.swp
 env.local
+gitconfig

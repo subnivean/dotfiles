@@ -3,5 +3,5 @@
 [credential]
 	helper = store
 [user]
-	email = mark.krautheim@gmail.com
-	name = Mark Krautheim
+	email = <EMAIL>
+	name = <NAME>

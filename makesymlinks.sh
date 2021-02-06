@@ -33,3 +33,17 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+# Update the username and email for Git.
+#
+# To make this work, create a file called `gituser.dat` with
+# the following (uncommented) lines:
+#
+#    name: Your Name
+#    email: your.email@you.com
+#
+echo -n "Updating Git username and email..."
+name=$(grep name: gituser.dat |cut -d':' -f2 |xargs)
+email=$(grep email: gituser.dat |cut -d':' -f2 |xargs)
+sed "s/<NAME>/$name/; s/<EMAIL>/$email/" gitconfig_template >|gitconfig
+echo "done."
