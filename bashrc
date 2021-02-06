@@ -50,3 +50,12 @@ alias tma="tmux attach"
 # Added 2013-03-31 to get the <TAB> key to cycle through
 # possibilities
 bind '"\t":menu-complete'
+
+set-title(){
+  ORIG=$PS1
+  TITLE="\e]2;$@\a"
+  PS1=${ORIG}${TITLE}
+}
+
+set-title "PyThaw"
+
