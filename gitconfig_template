@@ -3,5 +3,5 @@
 [credential]
 	helper = store
 [user]
-	email = <EMAIL>
-	name = <NAME>
+	email = <DFGITEMAIL>
+	name = <DFGITNAME>

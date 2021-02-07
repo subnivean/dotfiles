@@ -10,6 +10,11 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
+source $HOME/dotfiles/env.default
+if test -f $HOME/dotfiles/env.local; then
+  source $HOME/dotfiles/env.local
+fi
+
 # Fixup git-bash in non login env
 # shopt -q login_shell || . /etc/profile.d/git-prompt.sh
 source /etc/bash_completion.d/git-prompt
@@ -52,23 +57,25 @@ bind '"\t":menu-complete'
 
 set-title(){
   ORIG=$PS1
-  TITLE="\e]2;$@\a"
+  TITLE="\[\e]2;$@\a\]"
   PS1=${ORIG}${TITLE}
 }
 
-set-title "PyThaw"
+set-title $DFWINDOWTITLE
 
 if [ -z "$SSH_AUTH_SOCK" ] ; then
       eval `ssh-agent -s`
           ssh-add
 fi
 
+if [[ "$DFSITE" == "Work" ]]; then
 main_proxy="http://PITC-ZScaler-Global-Zen.proxy.corporate.ge.com:80"
 export http_proxy="$main_proxy"
 export https_proxy="$main_proxy"
 export HTTP_PROXY="$main_proxy"
 export HTTPS_PROXY="$main_proxy"
 export NO_PROXY="github.build.ge.com"
+fi
 
 ##### HISTORY SETTINGS #####
 ##### The following from https://stackoverflow.com/questions/9457233/unlimited-bash-history

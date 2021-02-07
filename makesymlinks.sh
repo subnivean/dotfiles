@@ -5,6 +5,14 @@
 ############################
 ########## Variables
 
+# Set default envvars
+source $HOME/dotfiles/env.default
+if test -f $HOME/dotfiles/env.local; then
+  source $HOME/dotfiles/env.local
+fi
+
+# Override with local envvars if present
+
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 # Make list of files/folders to symlink in homedir
@@ -43,7 +51,5 @@ done
 #    email: your.email@you.com
 #
 echo -n "Updating Git username and email..."
-name=$(grep name: gituser.dat |cut -d':' -f2 |xargs)
-email=$(grep email: gituser.dat |cut -d':' -f2 |xargs)
-sed "s/<NAME>/$name/; s/<EMAIL>/$email/" gitconfig_template >|gitconfig
+sed "s/<DFGITNAME>/$DFGITNAME/; s/<DFGITEMAIL>/$DFGITEMAIL/" gitconfig_template >|gitconfig
 echo "done."
