@@ -5,13 +5,15 @@
 ############################
 ########## Variables
 
+if ! test -f $HOME/dotfiles/dirstack; then
+  touch dirstack
+
 # Set default envvars
 source $HOME/dotfiles/env.default
+# Override with local envvars if present
 if test -f $HOME/dotfiles/env.local; then
   source $HOME/dotfiles/env.local
 fi
-
-# Override with local envvars if present
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
