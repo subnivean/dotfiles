@@ -51,6 +51,36 @@ alias gl="git log"
 # tmux
 alias tma="tmux attach"
 
+# Site/Environment-dependent aliases and functions
+if [[ "$DFSITE" == "work" ]] ; then
+  if [[ "$DFENV" == "wsl" ]] ; then
+    alias wscp=/mnt/c/Portable/PortableApps/WinSCPPortable/WinSCPPortable.exe
+    function jv
+    {
+      /mnt/c/Portable/PortableApps/JPEGViewPortable/JPEGViewPortable.exe "$(wslpath -aw $@)" &
+    }
+    function wm
+    {
+      /mnt/c/Portable/PortableApps/WinMergePortable/WinMergePortable.exe "$@" &
+    }
+
+  elif [[ "$DFENV" == "git-bash" ]] ; then
+    alias wscp=/c/Portable/PortableApps/WinSCPPortable/WinSCPPortable.exe
+    function jv
+    {
+      /c/Portable/PortableApps/JPEGViewPortable/JPEGViewPortable.exe "$(cygpath -aw $@)" &
+    }
+    function vi
+    {
+      /c/Portable/portableapps/gvimportable/gVimPortable.exe "$@" &
+    }
+    function wm
+    {
+      /c/Portable/PortableApps/WinMergePortable/WinMergePortable.exe "$@" &
+    }
+  fi
+fi
+
 # Added 2013-03-31 to get the <TAB> key to cycle through
 # possibilities
 bind '"\t":menu-complete'
@@ -68,13 +98,13 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
           ssh-add
 fi
 
-if [[ "$DFSITE" == "Work" ]]; then
-main_proxy="http://PITC-ZScaler-Global-Zen.proxy.corporate.ge.com:80"
-export http_proxy="$main_proxy"
-export https_proxy="$main_proxy"
-export HTTP_PROXY="$main_proxy"
-export HTTPS_PROXY="$main_proxy"
-export NO_PROXY="github.build.ge.com"
+if [[ "$DFSITE" == "work" ]]; then
+    main_proxy="http://PITC-ZScaler-Global-Zen.proxy.corporate.ge.com:80"
+    export http_proxy="$main_proxy"
+    export https_proxy="$main_proxy"
+    export HTTP_PROXY="$main_proxy"
+    export HTTPS_PROXY="$main_proxy"
+    export NO_PROXY="github.build.ge.com"
 fi
 
 ##### HISTORY SETTINGS #####
