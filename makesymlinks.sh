@@ -7,6 +7,7 @@
 
 if ! test -f $HOME/dotfiles/dirstack; then
   touch dirstack
+fi
 
 # Set default envvars
 source $HOME/dotfiles/env.default
