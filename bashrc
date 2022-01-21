@@ -107,7 +107,7 @@ if [[ "$DFSITE" == "work" ]]; then
     export NO_PROXY="github.build.ge.com"
 fi
 
-if [[ "$DFSITE" == "home" ]]; then
+if [[ "$DFSITE" == "Home" ]]; then
     export PATH=/usr/bin:$PATH
     export DOCKER_HOST=unix:///run/user/1000/docker.sock
 fi
