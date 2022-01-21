@@ -107,6 +107,11 @@ if [[ "$DFSITE" == "work" ]]; then
     export NO_PROXY="github.build.ge.com"
 fi
 
+if [[ "$DFSITE" == "home" ]]; then
+    export PATH=/usr/bin:$PATH
+    export DOCKER_HOST=unix:///run/user/1000/docker.sock
+fi
+
 ##### HISTORY SETTINGS #####
 ##### The following from https://stackoverflow.com/questions/9457233/unlimited-bash-history
 ##### Added 2021-02-01 MSK
