@@ -93,10 +93,11 @@ set-title(){
 
 set-title $DFWINDOWTITLE
 
-if [ -z "$SSH_AUTH_SOCK" ] ; then
-      eval `ssh-agent -s`
-          ssh-add
-fi
+# Don't really need this when logging into a Pi, do I?
+#if [ -z "$SSH_AUTH_SOCK" ] ; then
+#      eval `ssh-agent -s`
+#          ssh-add
+#fi
 
 if [[ "$DFSITE" == "work" ]]; then
     main_proxy="http://PITC-ZScaler-Global-Zen.proxy.corporate.ge.com:80"
