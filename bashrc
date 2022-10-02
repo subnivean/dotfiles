@@ -40,6 +40,7 @@ alias mv='mv -i'
 
 # Git aliases
 alias gst="git status"
+alias gs="git status"
 alias gd="git diff"
 alias gdt="git difftool"
 alias gb="git branch"
