@@ -111,7 +111,7 @@ fi
 
 if [[ "$DFSITE" == "home" ]]; then
     export PATH=/usr/bin:$PATH
-    export DOCKER_HOST=unix:///run/user/1000/docker.sock
+    #export DOCKER_HOST=unix:///run/user/1000/docker.sock
 fi
 
 ##### HISTORY SETTINGS #####
