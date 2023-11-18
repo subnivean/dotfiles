@@ -23,7 +23,7 @@ set expandtab
 "set columns=80
 "set textwidth=75
 set textwidth=0
-set guifont=Monospace\ 8
+set guifont=Ubuntu\ Mono\ 13
 " modeline is what allows you to put things like:
 " # vim: set filetype=perl expandtab tabstop=4 shiftwidth=4 autoindent smartindent nu:
 " at or near the bottom a file (i.e. file-specific vim settings)
