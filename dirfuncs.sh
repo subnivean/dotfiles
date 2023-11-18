@@ -52,6 +52,19 @@ pushd()
         popd -n +$n >/dev/null
     done
 
+        # Remove non-existent directories. Note
+        # how we reverse the numbers through `tac`
+        # so that we pop off the stack from high
+        # to low; that way, the indices don't change.
+        #
+    for n in $(dirs -v |cut -c1-2 | tac)
+    do
+        if ! [ -d "$(dirs -l +$n)" ]
+        then
+           popd -n +$n >/dev/null
+        fi
+    done
+
     save_dirstack
 }
 
