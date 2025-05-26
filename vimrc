@@ -38,8 +38,8 @@ set noerrorbells
 set t_vb= " damn - still get visual bell, even after this
 "set guifont=LucidaTypewriter\ 9
 syntax on
-"colors koehler
-colors xoria256
+colors koehler
+"colors xoria256
 "colorscheme murphy
 
 "call pathogen#infect()

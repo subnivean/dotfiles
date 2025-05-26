@@ -31,7 +31,7 @@ if [ ! -f ~/.dirstack ]; then touch ~/.dirstack; fi
 source $HOME/dotfiles/dirfuncs.sh  # My very own
 
 # Added with new System76 Adder laptop, 2023-10-29
-alias vi="flatpak run org.vim.Vim -g 2>/dev/null"
+#alias vi="flatpak run org.vim.Vim -g 2>/dev/null"
 
 alias ll='ls -l --color=always'
 alias lt='ls -lt --color=always'
@@ -144,6 +144,4 @@ export HISTFILE=~/.bash_eternal_history
 # http://superuser.com/questions/20900/bash-history-loss
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 ##### END HISTORY SETTINGS ####
-. "$HOME/.cargo/env"
-
 
